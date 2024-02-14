@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { filterReducer } from "./filterSlice";
-import quoteReducer from "./tickersSlice";
+import { quoteReducer } from "./tickersSlice";
 
 export const store = configureStore({
   reducer: {

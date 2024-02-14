@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 export const Td = styled.td`
-  padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
+  color: ${({ $test }) =>
+    $test === "decreased"
+      ? "#930000"
+      : $test === "increased"
+      ? "#018301"
+      : "black"};
 `;
 
 export const Tr = styled.tr`
@@ -14,4 +19,10 @@ export const Tr = styled.tr`
   &:hover {
     background-color: #eabbfa;
   }
+`;
+
+export const AddBtn = styled.button`
+  background: lightgreen;
+  border-radius: 50%;
+  font-size: large;
 `;

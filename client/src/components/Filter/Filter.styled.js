@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FilterWrapper = styled.div`
-  margin: 50px auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,7 +9,7 @@ export const FilterWrapper = styled.div`
 
 export const FilterInput = styled.input`
   width: 400px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 30px;
   border: 1px solid #ccc;
   font-size: 16px;

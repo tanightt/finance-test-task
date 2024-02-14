@@ -1,17 +1,27 @@
-const initialState = {
-  quotes: [],
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-const quoteReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_QUOTES":
-      return {
-        ...state,
-        quotes: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+export const quoteSlice = createSlice({
+  name: "quotes",
+  initialState: {
+    quotes: [],
+  },
+  reducers: {
+    setQuotes: (state, { payload }) => {
+      state.quotes = payload;
+    },
+    updatePrice: (state, { payload }) => {
+      const { ticker, price } = payload;
+      const quoteToUpdate = state.quotes.find(
+        (quote) => quote.ticker === ticker
+      );
+      if (quoteToUpdate) {
+        quoteToUpdate.price = price;
+      } else {
+        console.error("Quote not found for ticker:", ticker);
+      }
+    },
+  },
+});
 
-export default quoteReducer;
+export const { setQuotes, updatePrice } = quoteSlice.actions;
+export const quoteReducer = quoteSlice.reducer;
